@@ -11,7 +11,6 @@ import CocktailMenu from "../components/CocktailMenu";
 import Services from "../components/Services";
 import Gallery from "../components/Gallery";
 import Process from "../components/Process";
-import Testimonials from "../components/Testimonials";
 import BookingForm from "../components/BookingForm";
 import FloatingWhatsApp from "../components/FloatingWhatsApp";
 import Footer from "../components/Footer";
@@ -106,9 +105,6 @@ export default function Home() {
 
       {/* Process flow layout */}
       <Process />
-
-      {/* Guest Testimonials Slider */}
-      <Testimonials />
 
       {/* Interactive Booking and Quotation Form */}
       <BookingForm
