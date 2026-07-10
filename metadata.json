@@ -1,0 +1,6 @@
+{
+  "name": "WU BAR SG",
+  "description": "Luxury Mobile Bar Experience in Singapore. Crafting premium cocktails and bespoke bar experiences for weddings, corporate events, and private luxury celebrations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

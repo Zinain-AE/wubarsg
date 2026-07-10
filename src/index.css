@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  /* Brand luxury Dark Blue and Beige editorial colors */
+  --color-brand-bg: #FAF7F0; /* Soft warm light beige background */
+  --color-brand-card: #FFFFFF;
+  --color-brand-sage: #0B1E36; /* Accent 1: Midnight Dark Blue */
+  --color-brand-rose: #C5A880; /* Accent 2: Elegant Warm Beige Gold */
+  --color-brand-champagne: #D1BA9A; /* Accent 3: Sand Champagne Beige */
+  --color-brand-charcoal: #081325; /* Primary Text: Deep Midnight Blue */
+  --color-brand-warm-white: #F5EFEB; /* Secondary bg or warm white */
+  --color-brand-button: #0B1E36; /* Premium Dark Blue button background */
+  --color-brand-sage-light: #EDE6D6; /* Warm sand beige accent background */
+  --color-brand-rose-light: #F4EFE3; /* Soft warm beige background alternative */
+  --color-brand-champagne-light: #F9F6EE; /* Exquisite light ivory cream */
+}
+
+/* Custom premium styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-brand-bg);
+  color: var(--color-brand-charcoal);
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF7F0;
+}
+::-webkit-scrollbar-thumb {
+  background: #C5A880; /* Elegant Warm Beige Gold */
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0B1E36; /* Midnight Dark Blue */
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  background: rgba(250, 247, 240, 0.75);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(11, 30, 54, 0.15);
+}
+
+.glass-panel-light {
+  background: rgba(250, 247, 240, 0.85);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(11, 30, 54, 0.18);
+}
+
+/* Premium gradient border */
+.gold-border-gradient {
+  border-image: linear-gradient(to right, #0B1E36, #C5A880, rgba(0, 0, 0, 0)) 1;
+}
+
+/* Hide cursor on desktop when using custom cursor */
+@media (min-width: 1024px) {
+  .custom-cursor-active {
+    cursor: none;
+  }
+  .custom-cursor-active a,
+  .custom-cursor-active button,
+  .custom-cursor-active input,
+  .custom-cursor-active select,
+  .custom-cursor-active textarea,
+  .custom-cursor-active [role="button"] {
+    cursor: none;
+  }
+}
