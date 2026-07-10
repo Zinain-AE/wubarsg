@@ -287,7 +287,8 @@ export default function CocktailMenu({ signatureImage }: CocktailMenuProps) {
                 <img
                   src={cocktail.image}
                   alt={cocktail.name}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-95"
+                  loading="lazy"
+                  className="w-full h-full object-cover filter brightness-95"
                   referrerPolicy="no-referrer"
                 />
                 {/* Category Pill */}
@@ -414,6 +415,7 @@ export default function CocktailMenu({ signatureImage }: CocktailMenuProps) {
                     <img
                       src={selectedCocktail.image}
                       alt={selectedCocktail.name}
+                      loading="lazy"
                       className="w-full h-full object-cover filter brightness-95"
                       referrerPolicy="no-referrer"
                     />

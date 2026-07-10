@@ -1,4 +1,5 @@
-import { Instagram, Facebook, Mail, PhoneCall } from "lucide-react";
+import { Instagram, Facebook, PhoneCall } from "lucide-react";
+import wubarLogo from "../assets/images/wubar_logo_1783680139975.jpg";
 
 export default function Footer() {
   return (
@@ -7,12 +8,17 @@ export default function Footer() {
         
         {/* Logo block */}
         <div className="space-y-4">
-          <span className="font-serif text-3xl tracking-[0.18em] font-light text-brand-sage block">
-            WU BAR
-          </span>
-          <span className="font-sans text-[10px] tracking-[0.4em] text-brand-rose uppercase block -mt-3 font-semibold">
-            SINGAPORE
-          </span>
+          <div className="flex items-center gap-4">
+            <img src={wubarLogo} alt="WU BAR Logo" className="h-12 w-12" />
+            <div>
+              <span className="font-serif text-3xl tracking-[0.18em] font-light text-brand-sage block">
+                WU BAR
+              </span>
+              <span className="font-sans text-[10px] tracking-[0.4em] text-brand-rose uppercase block -mt-1 font-semibold">
+                SINGAPORE
+              </span>
+            </div>
+          </div>
           <p className="font-sans text-xs font-light leading-relaxed pt-2 text-brand-charcoal/70">
             Crafting refined mixology, delivering unforgettable corporate launches, luxury Sentosa weddings, and bespoke corporate cocktail experiences.
           </p>
@@ -27,10 +33,6 @@ export default function Footer() {
             Ready to design your bespoke beverage menu? Get in touch with our private concierge team today.
           </p>
           <div className="pt-2 text-xs font-mono text-brand-charcoal/80 space-y-2.5">
-            <div className="flex items-center space-x-2">
-              <Mail className="w-3.5 h-3.5 text-brand-sage" />
-              <a href="mailto:concierge@wubarsg.com" className="hover:text-brand-rose transition-colors">concierge@wubarsg.com</a>
-            </div>
             <div className="flex items-center space-x-2">
               <PhoneCall className="w-3.5 h-3.5 text-brand-sage" />
               <a href="tel:+6587263670" className="hover:text-brand-rose transition-colors">+65 8726 3670</a>
@@ -71,7 +73,7 @@ export default function Footer() {
       </div>
 
       {/* Copyright block */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 mt-16 pt-8 border-t border-brand-sage/15 flex flex-col md:flex-row justify-between items-center gap-4">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 mt-16 pt-8 border-t border-brand-sage/15 flex flex-col md:flex-row justify-center items-center gap-4">
         <span className="font-sans text-[10px] tracking-wider text-brand-charcoal/60">
           © 2026 WU BAR SG. ALL RIGHTS RESERVED.
         </span>

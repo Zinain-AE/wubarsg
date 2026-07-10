@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from "motion/react";
 import { Sparkles, ArrowUp, Instagram, Facebook, CalendarCheck, MapPin, Mail, PhoneCall } from "lucide-react";
 
 // Modular Component Imports
-import Cursor from "../components/Cursor";
 import Navigation from "../components/Navigation";
 import Hero from "../components/Hero";
 import WhyUs from "../components/WhyUs";
@@ -74,9 +73,6 @@ export default function Home() {
   return (
     <div className="min-h-screen relative font-sans overflow-x-hidden bg-brand-bg text-brand-charcoal">
       
-      {/* Custom Luxury Smooth Cursor */}
-      <Cursor />
-
       {/* Floating WhatsApp Concierge Button */}
       <FloatingWhatsApp />
 
