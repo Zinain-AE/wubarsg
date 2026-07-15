@@ -155,7 +155,7 @@ export default function CocktailMenu({ signatureImage }: CocktailMenuProps) {
     },
     {
       id: "midnight",
-      name: "Midnight Purple",
+      name: "Blackberry Veil",
       ingredients: ["Non-Alcoholic Botanical Juniper Elixir", "Alcohol-Free Violet Blossom Water", "Fresh Lemon", "Butterfly Pea Elixir"],
       preparation: ["Double Strain", "Layered Pea Flower Float", "Pressed Viola Edible Flower"],
       taste: ["Floral", "Sweet", "Royal"],
@@ -166,7 +166,7 @@ export default function CocktailMenu({ signatureImage }: CocktailMenuProps) {
     },
     {
       id: "santorini-sunset",
-      name: "Santorini Sunset",
+      name: "Aegean Glow",
       ingredients: ["Zero-Proof Saffron botanical Spirit", "Cold Pressed Pineapple Elixir", "Fresh Squeezed Lime", "Premium Saffron Syrup"],
       preparation: ["Hard Shake", "Double Strain", "Dehydrated Blood Orange Wheel"],
       taste: ["Tropical", "Citric", "Saffron"],
@@ -177,7 +177,7 @@ export default function CocktailMenu({ signatureImage }: CocktailMenuProps) {
     },
     {
       id: "sakura-fizz",
-      name: "Sakura Fizz",
+      name: "Hanami Spritz",
       ingredients: ["Bespoke Cherry Blossom infusion", "Ume Plum zero-proof nectar", "Perrier Soda", "Butterfly Pea extract"],
       preparation: ["Built over Floral Ice Sphere", "Slow Carbonation Pour", "Pickled Sakura Blossom garnish"],
       taste: ["Sweet", "Effervescent", "Berry"],
@@ -188,7 +188,7 @@ export default function CocktailMenu({ signatureImage }: CocktailMenuProps) {
     },
     {
       id: "tanoshitea",
-      name: "Tanoshitea",
+      name: "Smoky Amber",
       ingredients: ["Uji Matcha ceremonial grade", "Sakura Blossom water", "Fresh Citrus Squeeze", "Filtered Sparkling Soda"],
       preparation: ["Matcha Whisked Cold", "Built with Soda", "Fresh Mint Leaf crown"],
       taste: ["Herbaceous", "Floral", "Zen"],
