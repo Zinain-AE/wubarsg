@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { PhoneCall, ChevronDown } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { servicesData } from "../data";
+import { servicesData, packagesData, additionalServices } from "../data";
 import wubarLogo from "../assets/images/wubar_logo_1783680139975.jpg";
 
 interface NavigationProps {
@@ -12,8 +12,10 @@ interface NavigationProps {
 export default function Navigation({ onNavigateToBooking }: NavigationProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isPackagesOpen, setIsPackagesOpen] = useState(false);
   const [isCocktailsOpen, setIsCocktailsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const packagesDropdownRef = useRef<HTMLDivElement>(null);
   const cocktailsDropdownRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
   const navigate = useNavigate();
@@ -30,6 +32,9 @@ export default function Navigation({ onNavigateToBooking }: NavigationProps) {
     function handleClickOutside(event: MouseEvent | TouchEvent) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setIsServicesOpen(false);
+      }
+      if (packagesDropdownRef.current && !packagesDropdownRef.current.contains(event.target as Node)) {
+        setIsPackagesOpen(false);
       }
       if (cocktailsDropdownRef.current && !cocktailsDropdownRef.current.contains(event.target as Node)) {
         setIsCocktailsOpen(false);
@@ -113,6 +118,7 @@ export default function Navigation({ onNavigateToBooking }: NavigationProps) {
   const navLinks = [
     { name: "Home", href: isHome ? "#" : "/" },
     { name: "Services", href: isHome ? "#services" : "/#services" },
+    { name: "Packages", href: isHome ? "#packages" : "/#packages" },
     { name: "Why Us", href: isHome ? "#why-us" : "/#why-us" },
     { name: "Cocktails", href: isHome ? "#cocktails" : "/#cocktails" },
     { name: "Gallery", href: isHome ? "#gallery" : "/#gallery" },
@@ -227,6 +233,85 @@ export default function Navigation({ onNavigateToBooking }: NavigationProps) {
                               {service.title}
                             </Link>
                           ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            }
+            if (link.name === "Packages") {
+              return (
+                <div 
+                  key={link.name} 
+                  ref={packagesDropdownRef}
+                  className="relative flex-shrink-0"
+                  onMouseEnter={() => window.innerWidth >= 768 && setIsPackagesOpen(true)}
+                  onMouseLeave={() => window.innerWidth >= 768 && setIsPackagesOpen(false)}
+                >
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setIsPackagesOpen(!isPackagesOpen);
+                    }}
+                    className={`font-sans text-[11px] md:text-xs tracking-[0.15em] uppercase font-medium transition-colors relative flex-shrink-0 flex items-center gap-1 py-2 ${
+                      isPackagesOpen ? 'text-brand-sage' : 'text-brand-charcoal/80 hover:text-brand-sage'
+                    }`}
+                  >
+                    {link.name}
+                    <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${isPackagesOpen ? 'rotate-180' : ''}`} />
+                    <span className={`absolute bottom-0 left-0 h-[1px] bg-brand-rose transition-all duration-300 ${isPackagesOpen ? 'w-full' : 'w-0'}`} />
+                  </button>
+                  
+                  {/* Dropdown Menu */}
+                  <AnimatePresence>
+                    {isPackagesOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -5, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: -5, scale: 0.95 }}
+                        transition={{ duration: 0.2 }}
+                        className={`
+                          fixed left-4 right-4 top-[110px]
+                          md:absolute md:top-[100%] md:left-1/2 md:right-auto md:-translate-x-1/2 md:mt-2 md:w-[260px] 
+                          bg-white border border-brand-sage/15 rounded-2xl shadow-xl z-50 overflow-hidden
+                        `}
+                      >
+                        <div className="py-2 flex flex-col">
+                          {packagesData.map(pkg => (
+                            <Link
+                              key={pkg.id}
+                              to={`/package/${pkg.id}`}
+                              state={{ fromHome: true }}
+                              onClick={() => setIsPackagesOpen(false)}
+                              className="px-5 py-3.5 text-left font-sans text-[11px] md:text-xs tracking-[0.1em] uppercase text-brand-charcoal/80 hover:text-brand-sage hover:bg-brand-sage-light/40 transition-colors w-full border-b border-brand-sage/5 block"
+                            >
+                              {pkg.title}
+                            </Link>
+                          ))}
+                          <div className="pt-2 pb-1 border-b border-brand-sage/5">
+                            <Link 
+                              to="/additional-services"
+                              onClick={() => setIsPackagesOpen(false)}
+                              className="px-5 py-2 flex items-center justify-between group"
+                            >
+                              <span className="font-mono text-[9px] tracking-widest text-brand-rose font-bold uppercase">
+                                Additional Services
+                              </span>
+                              <ChevronDown className="w-3 h-3 text-brand-rose -rotate-90 group-hover:translate-x-1 transition-transform" />
+                            </Link>
+                            {additionalServices.map(service => (
+                              <Link
+                                key={service.title}
+                                to={`/additional-services`}
+                                state={{ fromHome: true }}
+                                onClick={() => setIsPackagesOpen(false)}
+                                className="px-5 py-2.5 pl-6 text-left font-sans text-[10px] md:text-[11px] tracking-[0.1em] uppercase text-brand-charcoal/70 hover:text-brand-sage hover:bg-brand-sage-light/40 transition-colors w-full block"
+                              >
+                                - {service.title}
+                              </Link>
+                            ))}
+                          </div>
                         </div>
                       </motion.div>
                     )}

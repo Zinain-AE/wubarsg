@@ -16,7 +16,9 @@ export default function BookingForm({ onBookingSubmitSuccess }: BookingFormProps
   const [eventDate, setEventDate] = useState("");
   const [venue, setVenue] = useState("");
   const [guestCount, setGuestCount] = useState<number>(50);
-  const [budget, setBudget] = useState("$3,000 - $5,000");
+  const [budget, setBudget] = useState("$220 - $500");
+  const [isCustomBudget, setIsCustomBudget] = useState(false);
+  const [customBudget, setCustomBudget] = useState("");
   const [message, setMessage] = useState("");
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -49,7 +51,7 @@ export default function BookingForm({ onBookingSubmitSuccess }: BookingFormProps
             eventDate,
             venue,
             guestCount,
-            budget,
+            budget: isCustomBudget ? customBudget : budget,
             message,
             selectedServices
           }),
@@ -71,7 +73,7 @@ export default function BookingForm({ onBookingSubmitSuccess }: BookingFormProps
 📞 *Contact Number:* ${phone || "Not specified"}
 📅 *Event Date:* ${eventDate || "TBD / Flexible"}
 📍 *Singapore Venue:* ${venue || "TBD / To Be Decided"}
-💰 *Approximate Budget:* ${budget}
+💰 *Approximate Budget:* ${isCustomBudget ? customBudget : budget}
 👥 *Attendees:* ${guestCount} Guests
 
 📋 *Required Capabilities:*
@@ -98,6 +100,8 @@ ${message || "No custom requirements requested. Ready to discuss!"}`;
         setEventDate("");
         setVenue("");
         setGuestCount(50);
+        setIsCustomBudget(false);
+        setCustomBudget("");
         setMessage("");
         setSelectedServices([]);
         setSubmitDone(false);
@@ -190,7 +194,7 @@ ${message || "No custom requirements requested. Ready to discuss!"}`;
                     <input
                       required
                       type="email"
-                      placeholder="e.g. jeanette@luxuryevents.sg"
+                      placeholder="e.g. wubarsg@gmail.com"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       className="w-full py-3.5 px-4 rounded-xl font-sans text-xs tracking-wider outline-none border transition-all bg-brand-bg border-brand-sage/15 focus:border-brand-sage text-brand-charcoal"
@@ -246,16 +250,34 @@ ${message || "No custom requirements requested. Ready to discuss!"}`;
                       APPROXIMATE BUDGET
                     </label>
                     <select
-                      value={budget}
-                      onChange={(e) => setBudget(e.target.value)}
+                      value={isCustomBudget ? "Custom" : budget}
+                      onChange={(e) => {
+                        if (e.target.value === "Custom") {
+                          setIsCustomBudget(true);
+                        } else {
+                          setIsCustomBudget(false);
+                          setBudget(e.target.value);
+                        }
+                      }}
                       className="w-full py-3.5 px-4 rounded-xl font-sans text-xs tracking-wider outline-none border transition-all bg-brand-bg border-brand-sage/15 focus:border-brand-sage text-brand-charcoal"
                     >
+                      <option value="$220 - $500">$220 - $500</option>
+                      <option value="$500 - $1,500">$500 - $1,500</option>
                       <option value="$1,500 - $3,000">$1,500 - $3,000</option>
                       <option value="$3,000 - $5,000">$3,000 - $5,000</option>
                       <option value="$5,000 - $8,000">$5,000 - $8,000</option>
-                      <option value="$8,000 - $12,000">$8,000 - $12,000</option>
-                      <option value="$12,000+">$12,000+ (Elite customized)</option>
+                      <option value="Custom">(Enter Custom Budget)</option>
                     </select>
+                    {isCustomBudget && (
+                      <input
+                        required
+                        type="text"
+                        placeholder="e.g. $10,000"
+                        value={customBudget}
+                        onChange={(e) => setCustomBudget(e.target.value)}
+                        className="w-full py-3.5 px-4 mt-3 rounded-xl font-sans text-xs tracking-wider outline-none border transition-all bg-brand-bg border-brand-sage/15 focus:border-brand-sage text-brand-charcoal"
+                      />
+                    )}
                   </div>
                 </div>
 
@@ -271,9 +293,9 @@ ${message || "No custom requirements requested. Ready to discuss!"}`;
                   </div>
                   <input
                     type="range"
-                    min="15"
-                    max="400"
-                    step="5"
+                    min="50"
+                    max="3000"
+                    step="50"
                     value={guestCount}
                     onChange={(e) => setGuestCount(Number(e.target.value))}
                     className="w-full h-1 bg-brand-sage/20 rounded-lg appearance-none cursor-pointer accent-brand-sage"

@@ -9,6 +9,7 @@ import Hero from "../components/Hero";
 import WhyUs from "../components/WhyUs";
 import CocktailMenu from "../components/CocktailMenu";
 import Services from "../components/Services";
+import Packages from "../components/Packages";
 import Gallery from "../components/Gallery";
 import Process from "../components/Process";
 import BookingForm from "../components/BookingForm";
@@ -95,6 +96,9 @@ export default function Home() {
 
       {/* Services Tab Portfolio */}
       <Services />
+
+      {/* Packages Options */}
+      <Packages />
 
       {/* Lightbox Editorial Gallery Masonry */}
       <Gallery

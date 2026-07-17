@@ -1,4 +1,4 @@
-import { ServiceItem } from "./types";
+import { ServiceItem, PackageItem } from "./types";
 
 export const servicesData: ServiceItem[] = [
   {
@@ -91,5 +91,106 @@ export const servicesData: ServiceItem[] = [
       "On-site event direction and seamless flow orchestration",
       "VIP guest concierge and personalized hospitality management",
     ]
+  }
+];
+
+export const packagesData: PackageItem[] = [
+  {
+    id: "epsom",
+    title: "EPSOM",
+    subtitle: "Bartender Only Service",
+    tagline: "\"You provide the drinks — we bring the craft.\"",
+    price: "$150 / 2 hours min",
+    pricingDetails: [
+      "2 Hours: $150",
+      "3 Hours: $230",
+      "4 Hours+: $60/hr"
+    ],
+    capacity: [
+      "Up to 15 pax — drinks brought directly to guests",
+      "20–30 pax — cocktail service",
+      "40–50 pax — general drinks service",
+      "61–100 pax — 2 bartenders recommended"
+    ],
+    includes: [
+      "Licensed professional bartender",
+      "Basic bar tools, shakers & jiggers",
+      "Setup and teardown",
+      "On-call support"
+    ],
+    surcharges: "Sentosa & Tuas: +$50"
+  },
+  {
+    id: "luxe",
+    title: "LUXE",
+    subtitle: "Dry Hire + Mobile Bar",
+    tagline: "\"Everything except alcohol, mixers & ice\"",
+    price: "$380 / 2 hours min",
+    pricingDetails: [
+      "2 Hours: $380",
+      "3 Hours: $450",
+      "4 Hours+: $80/hr"
+    ],
+    includes: [
+      "Signature 5ft styled bar cart",
+      "Licensed professional bartender",
+      "Bar tools, equipment & delivery",
+      "Setup, teardown, on-call support"
+    ],
+    surcharges: "Services up to 40-50 pax per bartender | Sentosa & Tuas: +$50 | Custom signage on cart: +$50",
+    extra: {
+      title: "LUXE PLUS",
+      description: "Includes custom pre-mixed cocktail/mocktail mixers & garnishes.",
+      pricing: [
+        "2 Hours: $520",
+        "3 Hours: $620",
+        "4 Hours+: $80/hr"
+      ],
+      includes: [
+        "Custom pre-mixed cocktail mixers & mocktail bases",
+        "Fresh garnishes, bar accessories, branded napkins & straws"
+      ]
+    }
+  },
+  {
+    id: "belmont",
+    title: "BELMONT",
+    subtitle: "Full Wet Bar Service",
+    tagline: "\"The complete WuBar experience. We provide everything.\"",
+    price: "$750 / 3 hours, 40 pax",
+    pricingDetails: [
+      "3 Hours: From $750 (2 Hours, 4 Hours, and Extra Hours are custom quoted on request)."
+    ],
+    includes: [
+      "Signature 5ft styled bar cart & licensed bartender(s)",
+      "Custom cocktail menu consultation",
+      "Alcohol (spirits, wine, beer), mixers, juices, sodas",
+      "Ice, garnishes, appropriate glassware",
+      "Branded napkins/straws, setup & full teardown",
+      "Pre-event consultation & delivery"
+    ],
+    capacity: [
+      "60–80 pax (+1 bartender)",
+      "80–150 pax (+2 bartenders)"
+    ],
+    surcharges: "DJ Service Add-on: $50 | Sentosa/Tuas: +$30"
+  }
+];
+
+export const additionalServices = [
+  {
+    title: "DJ Service",
+    description: "Professional DJ for your event",
+    price: "$300 / hr"
+  },
+  {
+    title: "Bespoke Signature Cocktail",
+    description: "A custom cocktail named for your event",
+    price: "+$80"
+  },
+  {
+    title: "Pre-Event Tasting Session",
+    description: "1hr consultation at your location",
+    price: "+$140"
   }
 ];

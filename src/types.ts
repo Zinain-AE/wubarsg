@@ -34,6 +34,25 @@ export interface TestimonialItem {
   avatar: string;
 }
 
+export interface PackageItem {
+  id: string;
+  title: string;
+  subtitle: string;
+  tagline: string;
+  price: string;
+  pricingDetails: string[];
+  capacity?: string[];
+  includes: string[];
+  excludes?: string[];
+  surcharges?: string;
+  extra?: {
+    title: string;
+    description: string;
+    pricing: string[];
+    includes: string[];
+  };
+}
+
 export interface ProcessStep {
   step: string;
   title: string;
