@@ -9,7 +9,6 @@ export const servicesData: ServiceItem[] = [
     features: [
       "Personalized couple's signature drink creations",
       "Elegantly themed sage and ivory bar counters",
-      "Michelin-standard crystal glassware and styling",
       "Custom ice spheres frozen with organic edible flowers",
       "Flawless five-star pre-reception hospitality",
     ]
